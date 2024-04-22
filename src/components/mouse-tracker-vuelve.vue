@@ -8,7 +8,9 @@ const props = defineProps({
   }
 })
 
-const { x, y, doubleX, doubleY } = mouseVuelve(props)
+const { x, y, doubleX, doubleY } = mouseVuelve({
+  props: props
+})
 </script>
 
 <template>

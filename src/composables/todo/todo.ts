@@ -1,18 +1,24 @@
-import { computed, ref } from 'vue'
+import { computed, reactive } from 'vue'
+
+type Todo = {
+  id: number
+  text: string
+  completed: boolean
+}
 
 export function useTodo() {
-  const todos = ref([] as { id: number; text: string; completed: boolean }[])
+  const todos = reactive([] as Todo[])
 
   function addTodo(text: string) {
-    todos.value.push({
-      id: todos.value.length + 1,
+    todos.push({
+      id: todos.length + 1,
       text,
       completed: false
     })
   }
 
   function toggleTodo(todoId: number) {
-    const todo = todos.value.find((todo) => todo.id === todoId)
+    const todo = todos.find((todo) => todo.id === todoId)
 
     if (todo) {
       todo.completed = !todo.completed
@@ -20,11 +26,11 @@ export function useTodo() {
   }
 
   function removeTodo(id: number) {
-    const index = todos.value.findIndex((todo) => todo.id === id)
-    todos.value.splice(index, 1)
+    const index = todos.findIndex((todo) => todo.id === id)
+    todos.splice(index, 1)
   }
 
-  const count = computed(() => todos.value.length)
+  const count = computed(() => todos.length)
 
   return {
     todos,

@@ -1,10 +1,12 @@
 import vuelve from 'vuelve'
 
 export default vuelve({
-  data: { x: 0, y: 0 },
+  data() {
+    return { x: 0, y: 0 }
+  },
   props: ['props'],
   methods: {
-    update(event) {
+    update(event: any) {
       this.x.value = event.pageX * this.props.multiplier
       this.y.value = event.pageY * this.props.multiplier
     }

@@ -1,8 +1,10 @@
 import vuelve from 'vuelve'
 
 export default vuelve({
-  data: {
-    count: 0
+  data() {
+    return  {
+      count: 0
+    }
   },
   methods: {
     increment() {
@@ -12,7 +14,4 @@ export default vuelve({
       this.count.value--
     }
   },
-  mounted() {
-    this.increment()
-  }
 })

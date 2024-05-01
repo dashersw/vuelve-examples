@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import MouseTracker from '../components/mouse-tracker.vue'
 import MouseTrackerVuelve from '../components/mouse-tracker-vuelve.vue'
 
